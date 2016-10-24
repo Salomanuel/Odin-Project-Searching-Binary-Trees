@@ -6,6 +6,10 @@ module BinaryTree
 		def initialize(v)
 			@value = v
 		end
+
+		def inspect
+			"{#{value}::#{left.inspect}|#{right.inspect}}"
+		end
 	end
 end
 
