@@ -16,6 +16,14 @@ class TreeNode
 		yield @value
 		@right.inorder(&block) unless @right.nil?
 	end
+
+	def bst? # thanks to the recursive power
+		return false if (@left  != nil and @value < @left.value)
+		return false if (@right != nil and @value > @right.value)
+		left_bst = (@left == nil) ? (true) : (@left.bst?)
+		right_bst = (@right == nil) ? (true) : (@right.bst?)
+		return (left_bst and right_bst)
+	end
 end
 
 left_child  = TreeNode.new(1, nil, nil)
@@ -27,3 +35,6 @@ puts root.inorder{ |value| puts value }
 
 
 # puts left_child.print_inorder
+puts root.bst?
+left_child.value = 3
+puts root.bst?
