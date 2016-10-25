@@ -1,4 +1,4 @@
-=begin
+
 module BinaryTree
 	class Node
 		attr_reader 	:value
@@ -67,12 +67,12 @@ tree = BinaryTree::Node.new(10)
 tree.left = BinaryTree::Node.new(5)
 # tree.right = BinaryTree::Node.new(15)
 puts tree.inspect
-tree.insert(3)
+# tree.insert(3)
 # puts tree.inspect
 # puts tree.include?(3)
 # puts tree.include?(4)	# => TO BE FIXED
 # happy = BinaryTree::Node.new(10).left
-=end
+
 
 #ORIGINAL CODE BY AUTHOR (doesn't work anyway)
 =begin
@@ -144,11 +144,11 @@ module BinaryTree
   end
 end
 =end
-tree       = BinaryTree::Node.new(10)
-tree.left  = BinaryTree::Node.new(5)
-tree.right = BinaryTree::Node.new(15)
-tree.insert(3)
-puts tree.inspect
-puts tree.include?(3)
+# tree       = BinaryTree::Node.new(10)
+# tree.left  = BinaryTree::Node.new(5)
+# tree.right = BinaryTree::Node.new(15)
+# tree.insert(3)
+# puts tree.inspect
+# puts tree.include?(3)
 # puts tree.include?(4) # => NON VA
 # happy = BinaryTree::EmptyNode.new(10) #=> 

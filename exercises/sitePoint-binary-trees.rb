@@ -30,7 +30,7 @@ left_child  = TreeNode.new(1, nil, nil)
 right_child = TreeNode.new(3, nil, nil)
 root        = TreeNode.new(2,left_child,right_child)
 
-# puts root.print_inorder
+puts root.print_inorder
 puts root.inorder{ |value| puts value }
 
 
