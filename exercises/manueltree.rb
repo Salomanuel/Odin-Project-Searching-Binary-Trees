@@ -86,30 +86,37 @@ class Tree
 	end
 
 	def is_balanced?(node=@root)
+
 		check_height(node) == -1 ? false : true
 	end
 end
 
-
-# ginkgo = Tree.new
-# ginkgo.insert(10)
-# ginkgo.insert(5)
-# 10.times { |i| ginkgo.insert(i) }
-# # ginkgo.in_order { |node| puts node.value }
-# # ginkgo.pre_order { |node| puts node.value }
-# # ginkgo.post_order { |node| puts node.value }
-# puts ginkgo.check_height(ginkgo.search(1))
-# puts ginkgo.is_balanced?
-
-
-tree = Tree.new
-tree.insert(50)
-tree.insert(25)
-tree.insert(75)
-tree.insert(12)
-tree.insert(37)
-tree.insert(87)
-tree.insert(63)
-# puts tree.inspect
-puts "tree.is_balanced?"
-puts tree.is_balanced?
+# commands from my first tree
+	# ginkgo = Tree.new
+	# ginkgo.insert(10)
+	# ginkgo.insert(5)
+	# 10.times { |i| ginkgo.insert(i) }
+	# # ginkgo.in_order { |node| puts node.value }
+	# # ginkgo.pre_order { |node| puts node.value }
+	# # ginkgo.post_order { |node| puts node.value }
+	# puts ginkgo.check_height(ginkgo.search(1))
+	# puts ginkgo.is_balanced?
+# commands from http://rubyalgorithms.com
+	# tree = Tree.new
+	# tree.insert(50)
+	# tree.insert(25)
+	# tree.insert(75)
+	# tree.insert(12)
+	# tree.insert(37)
+	# tree.insert(87)
+	# tree.insert(63)
+	# puts tree.inspect
+	# puts "tree.is_balanced?"
+	# puts tree.is_balanced?
+# commands from OdinProject
+	odin = Tree.new
+	nodes = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
+	nodes.each { |n| odin.insert(n) }
+	# odin.post_order { |n| puts n.value }
+	# puts odin.is_balanced?
+	puts odin.search(23)
