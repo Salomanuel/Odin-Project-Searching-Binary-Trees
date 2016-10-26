@@ -14,4 +14,13 @@ class BinarySearchTree
 			end
 		end
 	end
+	def initialize 
+		@root = nil
+	end
+
+	def insert(key)
+		(@root.nil?) ? (@root = Node.new(key)) : (@root.insert(key))
+	end
+
+	def 
 end
