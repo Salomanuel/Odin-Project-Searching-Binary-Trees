@@ -42,7 +42,18 @@ class BinaryTree
 		yield node
 		in_order(node.right, &block)
 	end
-	
+
+	def search(key, node=@root)
+		return false if node.nil?
+		if key < node.value
+			search(key, node.left)
+		elsif key > node.value
+			search(key, node.right)
+		else#if key == node.value
+			return node
+		end
+	end
+
 end
 
 tree = BinaryTree.new
@@ -51,3 +62,6 @@ tree = BinaryTree.new
 ary = [4, 18, 2, 5, 7, 16, 19, 10, 0, 6]
 ary.each { |n| tree.insert(n) }
 tree.in_order{ |n| puts n.value }
+
+puts tree.search(18)
+puts tree.search(17)
