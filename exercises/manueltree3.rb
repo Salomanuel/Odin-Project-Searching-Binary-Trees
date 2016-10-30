@@ -47,16 +47,13 @@ class Tree
 	end
 
 	def breadth_first_search(node=@root, level=0, list=[])
-		puts "level: #{level}"
 		list[level] ||= []
 		list[level] << node
 		if !node.left.nil?
-			level += 1
-			breadth_first_search(node.left,level,list)
+			breadth_first_search(node.left,  level+=1, list)
 		end
 		if !node.right.nil?
-			level += 1
-			breadth_first_search(node.right,level,list)
+			breadth_first_search(node.right, level+=1, list)
 		end
 		return list
 	end
@@ -70,7 +67,9 @@ tree = Tree.new
 # tree.build_tree(ary)
 tree.build_tree(letters)
 breadth = tree.breadth_first_search
+# puts breadth#[0].class
 breadth.each do |ary| 
+	print "#{breadth.index(ary)} "
 	ary.each { |n| print "#{n.value }" }
 	puts "\n"
 end
