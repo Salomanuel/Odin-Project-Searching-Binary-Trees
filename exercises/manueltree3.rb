@@ -46,7 +46,7 @@ class Tree
 		ary.each { |n| self.insert(n) }
 	end
 
-	def breadth_first_search(node=@root, level=0, list=[])
+	def breadth_first_search_old(node=@root, level=0, list=[])
 		list[level] ||= []
 		list[level] << node
 		if !node.left.nil?
@@ -57,6 +57,16 @@ class Tree
 		end
 		return list
 	end
+
+	def breadth_first_search(value)
+		list = [@root]
+		until list.empty?
+			current = list.shift
+			return current if current.value == value
+			list << current.left 	unless current.left.nil?
+			list << current.right unless current.right.nil?
+		end
+	end
 end
 
 
@@ -66,11 +76,12 @@ tree = Tree.new
 # tree.insert(3)
 # tree.build_tree(ary)
 tree.build_tree(letters)
-breadth = tree.breadth_first_search
+# breadth = tree.breadth_first_search
 # puts breadth#[0].class
-breadth.each do |ary| 
-	print "#{breadth.index(ary)} "
-	ary.each { |n| print "#{n.value }" }
-	puts "\n"
-end
+# breadth.each do |ary| 
+# 	print "#{breadth.index(ary)} "
+# 	ary.each { |n| print "#{n.value }" }
+# 	puts "\n"
+# end
+puts tree.breadth_first_search("E").value
 # puts tree.inspect
