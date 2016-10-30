@@ -46,7 +46,8 @@ class Tree
 		ary.each { |n| self.insert(n) }
 	end
 
-	def breadth_first_search_old(node=@root, level=0, list=[])
+			#does not work (yet)
+	def breadth_first_navigation(node=@root, level=0, list=[])
 		list[level] ||= []
 		list[level] << node
 		if !node.left.nil?
@@ -67,6 +68,14 @@ class Tree
 			list << current.right unless current.right.nil?
 		end
 	end
+
+	def depth_first_navigation(node=@root)
+		@list ||= []
+		depth_first_navigation(node.left)  unless node.left.nil?
+		@list << node
+		depth_first_navigation(node.right) unless node.right.nil?
+		return @list
+	end
 end
 
 
@@ -83,5 +92,7 @@ tree.build_tree(letters)
 # 	ary.each { |n| print "#{n.value }" }
 # 	puts "\n"
 # end
-puts tree.breadth_first_search("E").value
+# puts tree.breadth_first_search("E").value
 # puts tree.inspect
+tree.depth_first_navigation.each { |n| print n.value }
+puts
