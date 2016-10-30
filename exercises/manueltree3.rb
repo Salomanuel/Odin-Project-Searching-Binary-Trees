@@ -78,12 +78,9 @@ class Tree
 	end
 
 	def depth_first_search(value, node=@root)
-		return node when node.value == value
-		@list ||= []
-		depth_first_navigation(node.left)  unless node.left.nil?
-		@list << node
-		depth_first_navigation(node.right) unless node.right.nil?
-		return @list
+		puts node if node.value == value		
+		depth_first_search(value, node.left)  unless node.left.nil?
+		depth_first_search(value, node.right) unless node.right.nil?
 	end
 end
 
@@ -103,5 +100,6 @@ tree.build_tree(letters)
 # end
 # puts tree.breadth_first_search("E").value
 # puts tree.inspect
-tree.depth_first_navigation.each { |n| print n.value }
-puts depth_first_search("G")
+# puts 
+# tree.depth_first_navigation.each { |n| print n.value }
+tree.depth_first_search("G")
