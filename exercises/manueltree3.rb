@@ -45,12 +45,33 @@ class Tree
 	def build_tree(ary)
 		ary.each { |n| self.insert(n) }
 	end
+
+	def breadth_first_search(node=@root, level=0, list=[])
+		puts "level: #{level}"
+		list[level] ||= []
+		list[level] << node
+		if !node.left.nil?
+			level += 1
+			breadth_first_search(node.left,level,list)
+		end
+		if !node.right.nil?
+			level += 1
+			breadth_first_search(node.right,level,list)
+		end
+		return list
+	end
 end
 
 
 ary = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
+letters = %w(F D J B E G K A C I H)
 tree = Tree.new
-
-tree.insert(3)
-tree.build_tree(ary)
-puts tree.inspect
+# tree.insert(3)
+# tree.build_tree(ary)
+tree.build_tree(letters)
+breadth = tree.breadth_first_search
+breadth.each do |ary| 
+	ary.each { |n| print "#{n.value }" }
+	puts "\n"
+end
+# puts tree.inspect
